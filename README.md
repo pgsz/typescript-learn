@@ -1,10 +1,67 @@
-typescript
-==============
+# typescript
 
 typescript 的自我学习笔记
 
-ES6数据类型：Boolean、Number、Sting、Array、Function、Object、Symbol、undefined、null
+ES6 数据类型：Boolean、Number、Sting、Array、Function、Object、Symbol、undefined、null
 Typescript: Boolean、Number、Sting、Array、Function、Object、Symbol、undefined、null
-            voild、any、never、元祖、枚举、高级类型
+voild、any、never、元祖、枚举、高级类型
 
 语法：(变量、函数):type
+
+## 类型兼容性
+
+当一个类型 Y 可以被赋值给另一个类型 X 时，可以说类型 X 兼容类型 Y
+
+x 兼容 y: x(目标类型) = y(源类型)
+
+口诀：
+  结构之间兼容：成员少的兼容成员多的
+  函数之间兼容：参数多的兼容参数少的
+
+1. 接口
+
+   成员少的可以兼容成员多的
+
+2. 函数
+
+   2.1. 个数
+
+   - 多的可以兼容少的
+   - 固有参数 剩余参数 可选参数
+   - 可选参数 不兼容 不兼容
+   - 剩余参数 兼容 兼容
+   - 固有参数 兼容 兼容
+
+   2.2. 参数类型
+
+   - 多的可以兼容少的
+
+   2.3. 函数返回值
+
+   - 少的可以兼容多的
+
+   2.4. 函数重载
+
+   - 目标函数参数个数多于或者等于源函数参数个数 
+
+3. 枚举
+
+  - 数字和枚举可以相互兼容，枚举与枚举间不兼容 
+  
+4. 类
+
+  - 类的构造函数和静态成员不参与比较，当类中有私有成员时，两个类不兼容，类与子类可以 
+
+5. 泛型
+
+   5.1. 泛型接口
+
+     - 在两个泛型参数只有类型不相同时，只有在泛型参数使用时才影响
+
+   5.2. 泛型函数
+
+
+## 类型保护
+
+  TypeScript 能够在特定的区块中保证变量属于某种确定的类型。
+  可以在此区块中放心地引用此类型的属性，或者调用此类型的方法
